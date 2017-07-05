@@ -18,6 +18,6 @@
     "prepare": "npm run lib"
   },
   "devDependencies": {
-    "typescript": "^2.3.4"
+    "typescript": "^2.4"
   }
 }

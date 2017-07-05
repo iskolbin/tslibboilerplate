@@ -3,5 +3,10 @@
 BOILERPLATE_DIR=$(dirname $0)
 mkdir $1
 mkdir $1/src
-cp ${BOILERPLATE_DIR}/data/* $1/
-cp ${BOILERPLATE_DIR}/data/\.* $1/
+cp ${BOILERPLATE_DIR}/data/tsconfig.json $1/
+if [[ -z $2 ]]; then
+	sed "s/\${NAME}/ts$1/g" ${BOILERPLATE_DIR}/data/package.json > $1/package.json
+else
+	cp ${BOILERPLATE_DIR}/data/test.ts $1/
+	sed "s/\${NAME}/ts$1/g" ${BOILERPLATE_DIR}/data/package_test.json > $1/package.json
+fi
